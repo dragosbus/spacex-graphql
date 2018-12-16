@@ -19,8 +19,8 @@ const RocketType = new GraphQLObjectType({
   name: 'Rocket',
   fields: () => ({
     rocketId: {type: GraphQLString},
-    rocketName: {type: GraphQLString},
-    rockettype: {type: GraphQLString}
+    rocket_name: {type: GraphQLString},
+    rocket_type: {type: GraphQLString}
   })
 });
 
@@ -37,7 +37,7 @@ const RootQuery = new GraphQLObjectType({
     launch: {
       type: LaunchType,
       args: {
-        flightNumber: {type: GraphQLInt}
+        flight_number: {type: GraphQLInt}
       },
       resolve(parent, args) {
         return fetch(`https://api.spacexdata.com/v3/launches/${args.flight_number}`).then(res=>res.json());
